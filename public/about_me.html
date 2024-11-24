@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>My Portfolio</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header section with navigation tabs -->
+    <header class="header-glass-frame">
+        <div class="tabs">
+            
+            
+            <!-- Left Aligned - Navigation buttons for different pages -->
+            <button class="home-tab-button" onclick="navigateTo('homepage.html')">Home</button>
+            <button class="about-tab-button" onclick="navigateTo('about_me.html')">About Me</button>
+            <button class="projects-tab-button" onclick="navigateTo('projects.html')">Explore Projects</button>
+            <button class="current-tab-button" onclick="navigateTo('current_project.html', {project_name: 'Chassis Cache'})">Current Project</button>
+            
+            <h1 style="text-align: left;"><span class="highlight">Justin Bangtson</span>: About Me</h1>
+            
+
+            <!-- Right Aligned -->
+            <button class="resume-tab-button" onclick="window.open('assets/JustinBangtson_resume.pdf', '_blank')">Download Resume</button>
+            
+            
+        </div>
+    </header>
+    <!-- Main content area -->
+    <main class="glass-frame">
+        
+        <!-- Your main content goes here -->
+
+        <body>
+            <!-- Aside section -->
+            <aside class="glass-frame">
+                <p>This is the aside section. I will use this to add more content to the webpage in the future.</p>
+            </aside>
+            <!-- Additional content section -->
+            <p>
+                This is the additional content section. I will use this to add more content to the webpage in the future.
+            </p>
+            <!-- Footer section with contact information -->
+             
+        </body>
+    </main>
+
+    
+    
+
+    <footer class="footer-glass-frame">
+        <p style="text-align: center; font-size: 20px;" >Contact Me: <a href="mailto:bangtson.justin@gmail.com" style="font-size: 20px;">bangtson.justin@gmail.com</a></p>
+    </footer>
+    <!-- JavaScript function for navigation -->
+    <script src="/js/all_pages_scripts.js"></script>
+</body>
+</html>

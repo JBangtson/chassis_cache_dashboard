@@ -1,0 +1,416 @@
+/* General body and html styling */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #0F110C;
+}
+
+header {
+    height: 50px;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/*Table styling */
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    
+    
+
+}
+
+
+
+/* Top and bottom bars styling */
+.top-bar, .bottom-bar {
+    background-color: #3B1F2B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Tabs container styling */
+.tabs {
+    display: flex;
+    justify-content: left;
+}
+
+/* Tab button styling */
+.home-tab-button {
+    background-color: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 2px 20px;
+    margin: 0 7px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    height: 90px;
+}
+
+.about-tab-button {
+    background-color: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 2px 20px;
+    margin: 0 7px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.projects-tab-button {
+    background-color: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 2px 20px;
+    margin: 0 7px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.current-tab-button {
+    background-color: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 2px 20px;
+    margin: 0 7px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.resume-tab-button {
+    background-color: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 2px 20px;
+    margin: 0 7px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: auto;
+}
+
+/* Tab button hover effect */
+.home-tab-button:hover {
+    background-color: #E3B505;
+}
+
+.about-tab-button:hover {
+    background-color: #E3B505;
+}
+
+.projects-tab-button:hover {
+    background-color: #E3B505;
+}
+
+.current-tab-button:hover {
+    background-color: #E3B505;
+}
+
+.resume-tab-button:hover {
+    background-color: #0a970a;
+}
+
+/* Main content styling */
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Bottom bar styling */
+.bottom-bar {
+    background-color: #3B1F2B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Aside styling */
+aside {
+    width: 20%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: #14121f;
+}
+
+/* Header styling */
+h1 {
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+/* Anchor, Paragraph tag styling */
+a {
+    color: #ffd102;
+    font-family: 'Lato', sans-serif;
+}
+p {
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+label {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 16px;
+    
+}
+
+span {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 14px;
+}
+
+/* Highlight styling */
+.highlight {
+    color: #E3B505;
+    font-size: 32px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Styling for frames */
+.glass-frame {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+.header-glass-frame {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(10deg, #333333, #1C6DD0);
+    backdrop-filter: blur(20px);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+.footer-glass-frame {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(45deg, #0a3968, #0a3968, #0e4a8f, #0c4480, #042a50);
+    backdrop-filter: blur(20px);
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.input-group input {
+    font-family: 'Lato', sans-serif;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    border-radius: 4px;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Additional comments for future styling */
+/* Footer styling - not yet implemented */
+
+/* Additional hover effects for buttons - not yet implemented */
+/* Media queries for different screen sizes - not yet implemented */
+/* Animations and transitions - not yet implemented */
+
+
+
+/* Add media queries for different screen sizes */
+@media screen and (max-width: 1460px) {
+    /* Tablet adjustments */
+    
+    
+    .home-tab-button,
+    .about-tab-button,
+    .projects-tab-button,
+    .current-tab-button,
+    .resume-tab-button {  /* Added resume-tab-button here */
+        margin: 5px;
+        padding: 5px 15px;
+        font-size: 1rem;
+    }
+
+
+    
+
+    h1{
+        font-size:x-large
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+    /* Tablet adjustments */
+    
+    .home-tab-button,
+    .about-tab-button,
+    .projects-tab-button,
+    .current-tab-button,
+    .resume-tab-button {
+        margin: 5px;
+        padding: 5px 15px;
+        font-size: 1rem;
+    
+        transform: translateY(-10px);
+    
+    }
+    .highlight {
+        font-size: 15px;
+    }
+    h1{
+        font-size:medium
+    }
+
+    aside {
+        width: 100%;  /* Make aside full width on smaller screens */
+        margin: 15px 0;
+        padding: 15px;
+        float: none;
+    }
+
+
+
+}
+
+
+
+
+
+@media screen and (max-width: 700px) {
+    /* Tablet adjustments */
+    
+    .home-tab-button,
+    .about-tab-button,
+    .projects-tab-button,
+    .current-tab-button,
+    .resume-tab-button {
+        margin: 5px;
+        padding: 5px 15px;
+        font-size: 1rem;
+    
+        transform: translateY(-10px);
+    
+    }
+
+    h1{
+        display: none;
+    }
+
+    aside {
+        width: 100%;  /* Make aside full width on smaller screens */
+        margin: 15px 0;
+        padding: 15px;
+        float: none;
+    }
+
+
+    
+}
+
+.input-container {
+    padding: 15px;
+    text-align: right;
+}
+
+.input-group label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    width: 200px;
+    padding: 8px;
+    background-color: #1C6DD0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #E3B505;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-.5px);
+}
+
+/* Form Layout Styling */
+.input-container {
+    padding: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+}
+
+.input-group input[type="text"] {
+    width: 200px;
+    padding: 5px;
+}
+
+.date-range {
+    display: inline-block;
+}
+
+.date-range span {
+    margin: 0 10px;
+}
+
+

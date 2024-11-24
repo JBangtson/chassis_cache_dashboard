@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "```mermaid\r graph TD;\r     A[NodeJS my-portfolio-website] --> B[server.js]\r     A --> C[package.json]\r     A --> D[public/]\r     D --> E[index.html]\r     D --> F[css/]\r     F --> G[styles.css]\r     D --> H[js/]\r     H --> I[script.js]\r     A --> J[views/]\r     J --> K[home.ejs]\r     A --> L[db/]\r     L --> M[db.js]\r ```",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node server.js\" \"py carbitrage_dashboard/carbitrage_api_processing.py\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "node-fetch": "^3.3.2",
+    "sqlite3": "^5.1.7"
+  },
+  "type": "module",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
