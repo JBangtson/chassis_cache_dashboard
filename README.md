@@ -14,6 +14,7 @@ graph TD;
     L --> M[carbitrage.db]
 ```
 
+You need carbitrage table in: data/
 
 __Run npm start in bash__ Visit [page here](http://localhost:3000) and [API here](http://localhost:5000/api/unique_car_makes)
 
