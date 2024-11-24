@@ -14,15 +14,17 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #0F110C;
+    background-color: #161616;
 }
 
 header {
     height: 50px;
+    background-color: #000000;
 }
 
 footer {
     margin-top: auto;
+    background-color: #000000;
 }
 
 /*Table styling */
@@ -51,6 +53,22 @@ th, td {
 .tabs {
     display: flex;
     justify-content: left;
+}
+
+/* Tab button styling */
+.test-tab-button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 0px 5px;
+    margin: 0 0px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    border-radius: 5px;
+    height: 100%;
+    width: 11%;
 }
 
 /* Tab button styling */
@@ -117,6 +135,10 @@ th, td {
 }
 
 /* Tab button hover effect */
+.test-tab-button:hover {
+    color: #E3B505; /* Change font color on hover */
+}
+
 .home-tab-button:hover {
     background-color: #E3B505;
 }
@@ -209,7 +231,7 @@ span {
 
 .header-glass-frame {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(10deg, #333333, #1C6DD0);
+    background: solid( #000000);
     backdrop-filter: blur(20px);
     border-radius: 2px;
     padding: 20px;
@@ -217,7 +239,7 @@ span {
 
 .footer-glass-frame {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(45deg, #0a3968, #0a3968, #0e4a8f, #0c4480, #042a50);
+    background: solid( #000000);
     backdrop-filter: blur(20px);
     border-radius: 2px;
     padding: 10px;
