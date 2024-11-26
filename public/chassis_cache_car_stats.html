@@ -15,19 +15,23 @@
         <div class="tabs">
             
             <!-- Left Aligned - Navigation buttons for different pages -->
-            <button class="home-tab-button" onclick="navigateTo('homepage.html')">Home</button>
-            <button class="about-tab-button" onclick="navigateTo('about_me.html')">About Me</button>
-            <button class="projects-tab-button" onclick="navigateTo('projects.html')">Explore Projects</button>
-            <button class="current-tab-button" onclick="navigateTo('current_project.html', {project_name: 'Chassis Cache'})">Current Project</button>
+            <button class="test-tab-button" onclick="navigateTo('homepage.html')">Home</button>
+            <button class="test-tab-button" onclick="navigateTo('about_me.html')">About Me</button>
+            <button class="test-tab-button" onclick="navigateTo('projects.html')">Projects</button>
+            <button class="test-tab-button" onclick="navigateTo('current_project.html', {project_name: 'Chassis Cache'})">Current Project</button>
             
             <!-- Center Aligned -->
-            <div style="width: 100%;">
-                <h1 style="text-align: left;"><span class="highlight">Justin Bangtson</span>: Car Stats</h1>
-            </div>
+            <h1 style="text-align: center; margin-top: 8px; margin-left: 70px;">
+                <span class="highlight">Justin Bangtson</span>: 
+                <span id="project_name" class="h1" style="font-size: 27px; font-family: 'Lato', sans-serif;">Current Project</span>
+            </h1>
             
 
             <!-- Right Aligned -->
-            <button class="resume-tab-button" onclick="window.open('assets/JustinBangtson_resume.pdf', '_blank')">Download Resume</button>
+            <!-- Resume Button -->
+            <button class="test-tab-button" style="margin-left: auto; margin-top: -5px;" onclick="window.open('assets/JustinBangtson_resume.pdf', '_blank')">
+                Download Resume
+            </button>
             
             
         </div>
@@ -53,10 +57,17 @@
             <!-- Graph container -->
             <div style="flex: 1;">
                 <div id="barGraph" style="width: 100%; height: 600px;"></div>
-                
-            <p style="text-align: right; margin-top: 50px; margin-left: 350px; width: 50%">
-                This comparison illustrates the price of this vehicle relative to others of the same make (e.g., Subaru), model (e.g., Forester), title (e.g., Clean, Salvage, etc.), and year, which have an odometer reading within 5,000 miles.
-            </p>
+                <div style="display: flex; justify-content: space-between; margin-top: 50px; margin-left: 50px;">
+
+                    <p id='car_count_p' style="width: 25%; text-align: left; margin-left: 20px;"></p>
+
+                    <p style="width: 50%; text-align: right; margin-bottom: 10px; margin-right: 150px;">
+                        This comparison illustrates the price of this vehicle relative to others of the same make, model, title, and year, which have an odometer reading within 5,000 miles.
+                    </p>
+                </div>
+            
+            
+
             </div>
         </div>
 

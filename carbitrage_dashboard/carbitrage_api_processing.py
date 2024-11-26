@@ -583,7 +583,7 @@ def search_cars_by_mileage():
     except Exception as e:
         return jsonify({'error': f"Database error: {str(e)}"}), 500
 
-
+#This query is totally fucked up
 # Odometer is within 5k miles
 @app.route('/api/car_search_by_unique_url', methods=['POST'])
 def search_cars_by_url():

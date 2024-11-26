@@ -63,7 +63,11 @@ async function getCarDataByUrl() {
         document.getElementById('car_city').textContent = `City: ${(carData.location || 'N/A').charAt(0).toUpperCase() + (carData.location || 'N/A').slice(1)}`;
         document.getElementById('car_title').textContent = `Title: ${(carData.title || 'N/A').charAt(0).toUpperCase() + (carData.title || 'N/A').slice(1)}`;
         document.getElementById('car_price').textContent = `Price: $${Number(carData.price || 0).toLocaleString()}`;
-
+        
+        // Update the car count paragraph with HTML for underlining
+        const lowerBound = Number(carData.odometer) - 5000;
+        const upperBound = Number(carData.odometer) + 5000;
+        document.getElementById('car_count_p').innerHTML = `The count of ${(carData.title || 'N/A Title').charAt(0).toUpperCase() + (carData.title || 'N/A Title').slice(1)} ${(carData.make || 'N/A Make').charAt(0).toUpperCase() + (carData.make || 'N/A Make').slice(1)}(s) ${(carData.model || 'N/A Model').charAt(0).toUpperCase() + (carData.model || 'N/A Model').slice(1)}(s) between ${lowerBound.toLocaleString()} and ${upperBound.toLocaleString()} is <u>${Number(carData.total_similar_cars || 0).toLocaleString()}</u> cars.`;
         // Create the graph with proper data structure
         const sampleData = [
             { category: "This Car Price", value: Number(carData.price || 0) },
@@ -153,7 +157,10 @@ function createBarGraph(data, containerId) {
 
  // Add Y axis with animation
  svg.append("g")
-     .call(d3.axisLeft(y).tickFormat(d => `$${d / 1000}k`))  // Format Y axis labels in thousands
+     .call(d3.axisLeft(y)
+         .tickFormat(d => `$${d / 1000}k`)  // Format Y axis labels in thousands
+         .tickValues([0, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000, 65000, 70000, 75000, 80000, 85000, 90000, 95000, 100000]) // Specify custom tick values
+     )  
      .selectAll("text")
      .style("fill", "white")
      .style("opacity", 0)  // Start invisible
