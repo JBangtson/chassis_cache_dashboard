@@ -18,11 +18,11 @@
             <button class="test-tab-button" onclick="navigateTo('about_me.html')">About Me</button>
             <button class="test-tab-button" onclick="navigateTo('projects.html')">Projects</button>
             <button class="test-tab-button" onclick="navigateTo('current_project.html')">Current Project</button>
-            <button class="test-tab-button" onclick="navigateTo('test_report.html')">Chassis Cache Report</button>
+            <button class="test-tab-button" style=" margin-top: -5px;" onclick="navigateTo('test_report.html')">Chassis Cache Report</button>
             
             <!-- Page Title -->
             
-            <h1 style="text-align: center; margin-top: 8px; margin-left: 70px;">
+            <h1 style="text-align: center; margin-top: 8px; margin-left: 100px;">
                 <span class="highlight">Justin Bangtson</span>: 
                 <span id="project_name" class="h1" style="font-size: 27px; font-family: 'Lato', sans-serif;">Current Project</span>
             </h1>
@@ -60,6 +60,26 @@
                            list="carModels"
                            placeholder="Start typing a car model...">
                             <datalist id="carModels"></datalist>
+                </div>
+
+                <div class="input-group">
+                    <label for="minCarYear">Min Year:</label>
+                    <input type="text" 
+                           id="minCarYear" 
+                           name="minCarYear" 
+                           list="minCarYears"
+                           placeholder="Start typing a car year...">
+                            <datalist id="minCarYears"></datalist>
+                </div>
+
+                <div class="input-group">
+                    <label for="maxCarYear">Max Year:</label>
+                    <input type="text" 
+                           id="maxCarYear" 
+                           name="maxCarYear" 
+                           list="maxCarYears"
+                           placeholder="Start typing a car year...">
+                            <datalist id="maxCarYears"></datalist>
                 </div>
 
                 <div class="input-group">

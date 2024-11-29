@@ -113,6 +113,32 @@ def get_unique_car_makes():
         print(f"Error in get_unique_car_makes: {str(e)}")  # Debug print
         return jsonify({'error': f"Database error: {str(e)}"}), 500
 
+@app.route('/api/unique_car_years', methods=['GET'])
+def get_unique_car_years():
+    """
+    Endpoint that returns unique car make names.
+    Used for populating car make dropdowns in the frontend.
+    """
+    unique_car_years_query = """
+        SELECT DISTINCT year as year_name
+        FROM carbitrage_table
+        ORDER BY year DESC;
+    """
+    try:
+        print("Attempting to fetch car years...")
+        data = query_database(unique_car_years_query)
+        print(f"Retrieved car years data: {data}")  # Debug print
+        
+        if not data:
+            return jsonify({'error': 'No car makes found'}), 404
+            
+        # Ensure data is in correct format
+        formatted_data = [{'year_name': row['year_name']} for row in data]
+        return jsonify(formatted_data)
+        
+    except Exception as e:
+        print(f"Error in get_unique_car_years: {str(e)}")  # Debug print
+        return jsonify({'error': f"Database error: {str(e)}"}), 500
 
 @app.route('/api/unique_car_models', methods=['GET'])
 def get_unique_car_models():
@@ -350,6 +376,24 @@ def search_cars():
         query += " AND LOWER(model) LIKE LOWER(?)"
         params.append(f"%{user_input['model']}%")
     
+
+    min_year = 1974
+    max_year = 2025
+
+    # Check user inputs
+    if user_input.get('min_year') and user_input['min_year'].strip() != "<empty string>":
+        min_year = float(user_input['min_year'])  # Ensure it's a valid float
+    print(f"Updated min_year to: {min_year}")  # Debug print
+
+    if user_input.get('max_year') and user_input['max_year'].strip() != "<empty string>":
+        max_year = float(user_input['max_year'])  # Ensure it's a valid float
+    print(f"Updated max_year to: {max_year}")  # Debug print
+
+    # Construct the query with BETWEEN
+    query += " AND CAST(year AS FLOAT) BETWEEN ? AND ?"
+    params.extend([min_year, max_year])  # Add both min and max prices to params
+
+
     # Debug print statements
     print(f"Min Price Input: {user_input.get('min_price')}")
     print(f"Max Price Input: {user_input.get('max_price')}")
@@ -590,36 +634,26 @@ def search_cars_by_url():
     passed_input = request.get_json()
     
     query = """
-        WITH car_details AS (
-        SELECT make, model, state, location, title, year, price, odometer, url
-        FROM carbitrage_table 
-        WHERE url = ?
-        LIMIT 1
-    ),
-    avg_price AS (
+    WITH searched_car AS (
+    SELECT *
+    FROM carbitrage_table
+    WHERE url = ?
+    LIMIT 1
+    )
     SELECT 
-        ROUND(AVG(ct.price), 2) AS average_price,
-        COUNT(*) AS total_similar_cars,
-        ct.url,
-        ct.model,
-        ct.make,
-        ct.title,
-        ct.odometer
+        sc.*, 
+        COUNT(*) AS combo_count,
+        AVG(ct.price) AS avg_price
     FROM carbitrage_table ct
-    JOIN car_details cd
-        ON ct.make = cd.make
-        AND ct.model = cd.model
-        AND ct.year = cd.year
-        AND ct.title = cd.title
-    WHERE ct.odometer - cd.odometer <= ABS(5000)  -- Updated to include absolute value of 5000
-)
-   
-    SELECT 
-        cd.*,
-        ap.average_price,
-        ap.total_similar_cars
-    FROM car_details cd
-    CROSS JOIN avg_price ap;
+    JOIN searched_car sc
+        ON ct.make = sc.make
+        AND ct.model = sc.model
+        AND ct.year = sc.year
+        AND ABS(ct.odometer - sc.odometer) <= 5000
+    GROUP BY 
+        sc.make, 
+        sc.model, 
+        sc.year;
     """
     
     try:

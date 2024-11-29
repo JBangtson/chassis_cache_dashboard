@@ -67,11 +67,12 @@ async function getCarDataByUrl() {
         // Update the car count paragraph with HTML for underlining
         const lowerBound = Number(carData.odometer) - 5000;
         const upperBound = Number(carData.odometer) + 5000;
-        document.getElementById('car_count_p').innerHTML = `The count of ${(carData.title || 'N/A Title').charAt(0).toUpperCase() + (carData.title || 'N/A Title').slice(1)} ${(carData.make || 'N/A Make').charAt(0).toUpperCase() + (carData.make || 'N/A Make').slice(1)}(s) ${(carData.model || 'N/A Model').charAt(0).toUpperCase() + (carData.model || 'N/A Model').slice(1)}(s) between ${lowerBound.toLocaleString()} and ${upperBound.toLocaleString()} is <u>${Number(carData.total_similar_cars || 0).toLocaleString()}</u> cars.`;
+        document.getElementById('car_count_p').innerHTML = `The count of ${(carData.title || 'N/A Title').charAt(0).toUpperCase() + (carData.title || 'N/A Title').slice(1)} ${(carData.make || 'N/A Make').charAt(0).toUpperCase() + (carData.make || 'N/A Make').slice(1)}(s) ${(carData.model || 'N/A Model').charAt(0).toUpperCase() + (carData.model || 'N/A Model').slice(1)}(s) between ${lowerBound.toLocaleString()} and ${upperBound.toLocaleString()} is <u>${Number(carData.combo_count || 0).toLocaleString()}</u> cars. The predictive model's residual for this car is $${Math.round(Number(carData.residual || 0)).toLocaleString()}.`;
         // Create the graph with proper data structure
         const sampleData = [
             { category: "This Car Price", value: Number(carData.price || 0) },
-            { category: "Average Car Price*", value: Number(carData.average_price || 0) }
+            { category: "Average Car Price*", value: Number(carData.avg_price || 0) },
+            { category: "Predicted Car Price*", value: Number(carData.predicted_price || 0) }
         ];
         createBarGraph(sampleData, "#barGraph");
 
@@ -159,7 +160,7 @@ function createBarGraph(data, containerId) {
  svg.append("g")
      .call(d3.axisLeft(y)
          .tickFormat(d => `$${d / 1000}k`)  // Format Y axis labels in thousands
-         .tickValues([0, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000, 65000, 70000, 75000, 80000, 85000, 90000, 95000, 100000]) // Specify custom tick values
+         .tickValues([0, 2500, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 22500, 25000, 27500, 30000, 32500, 35000, 37500, 40000, 42500, 45000, 47500, 50000, 52500, 55000, 57500, 60000, 62500, 65000, 67500, 70000, 72500, 75000, 77500, 80000, 82500, 85000, 87500, 90000, 92500, 95000, 97500, 100000]) // Specify custom tick values
      )  
      .selectAll("text")
      .style("fill", "white")
@@ -180,7 +181,15 @@ function createBarGraph(data, containerId) {
      .attr("width", x.bandwidth())
      .attr("y", height)  // Start from bottom
      .attr("height", 0)  // Start with height 0
-     .attr("fill", (d, i) => i === 0 ? (data[0].value < data[1].value ? "#E3B505" : "#645002") : "#1C6DD0")  // Conditional color
+     .attr("fill", (d, i) => {
+         if (i === 0) {
+             return data[0].value <= data[2].value && data[0].value <= data[1].value || data[0].value <= data[1].value && 0 == data[2].value ? "#E3B505" : "#00bfff"; // First column color logic
+         } else if (i === 1) {
+             return "#1C6DD0"; // Second column color
+         } else {
+             return "#0a4791"; // Third column color
+         }
+     })  // Conditional color
      .transition()  // Add transition
      .duration(1500)  // Animation duration in milliseconds
      .delay((d, i) => i * 200)  // Stagger the animations

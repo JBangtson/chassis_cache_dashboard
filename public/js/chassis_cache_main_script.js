@@ -86,6 +86,72 @@ async function populateCarMakes() {
     }
 }
 
+// Function to fetch unique car years from the server and populate the datalist
+async function populateCarYearsMin() {
+    try {
+        //console.log('Fetching car makes...');
+        const response = await fetch('http://localhost:5000/api/unique_car_years');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        //console.log('Received car makes:', data);  // Debug log
+        
+        const datalist = document.getElementById('minCarYears');
+        datalist.innerHTML = ''; // Clear existing options
+        
+        // Check the structure of your data and handle accordingly
+        if (Array.isArray(data)) {
+            data.forEach(item => {
+                //console.log('Processing item:', item);  // Debug log
+                const option = document.createElement('option');
+                // Adjust this line based on your actual data structure
+                option.value = item.year_name || item.year_name || '';
+                datalist.appendChild(option);
+            });
+        }
+
+
+        
+    } catch (error) {
+        console.error('Error loading car makes:', error);
+    }
+}
+
+
+async function populateCarYearsMax() {
+    try {
+        //console.log('Fetching car makes...');
+        const response = await fetch('http://localhost:5000/api/unique_car_years');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        //console.log('Received car makes:', data);  // Debug log
+        
+        const datalist = document.getElementById('maxCarYears');
+        datalist.innerHTML = ''; // Clear existing options
+        
+        // Check the structure of your data and handle accordingly
+        if (Array.isArray(data)) {
+            data.forEach(item => {
+                //console.log('Processing item:', item);  // Debug log
+                const option = document.createElement('option');
+                // Adjust this line based on your actual data structure
+                option.value = item.year_name || item.year_name || '';
+                datalist.appendChild(option);
+            });
+        }
+
+
+        
+    } catch (error) {
+        console.error('Error loading car makes:', error);
+    }
+}
+
 // Function to fetch unique car models from the server and populate the datalist
 async function populateCarModels() {
     try {
@@ -316,6 +382,8 @@ document.addEventListener('DOMContentLoaded', function() {
     populateCarCities();
     populateCarStates();
     populateCarTitles();
+    populateCarYearsMin();
+    populateCarYearsMax();
 
     // Initialize map and markers
     initializeMap();
@@ -345,6 +413,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function clearInputs() {
     document.getElementById('carMake').value = '';
     document.getElementById('carModel').value = '';
+    document.getElementById('minCarYear').value = '';
+    document.getElementById('maxCarYear').value = '';
     document.getElementById('city').value = '';
     document.getElementById('state').value = '';
     document.getElementById('carTitle').value = '';
@@ -363,6 +433,8 @@ async function submitFormData() {
         const formData = {
             make: document.getElementById('carMake').value || '',
             model: document.getElementById('carModel').value || '',
+            min_year: document.getElementById('minCarYear').value || '',
+            max_year: document.getElementById('maxCarYear').value || '',
             city: document.getElementById('city').value || '',
             state: document.getElementById('state').value || '',
             carTitle: document.getElementById('carTitle').value || '',
