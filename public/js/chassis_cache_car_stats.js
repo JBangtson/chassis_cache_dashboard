@@ -117,7 +117,7 @@ function createBarGraph(data, containerId) {
     d3.select(containerId).html("");
     
     // Set up the graph dimensions and margins
-    const margin = {top: 10, right: 20, bottom: 30, left: 90};
+    const margin = {top: 80, right: 20, bottom: 30, left: 90};
     const width = 800 - margin.left - margin.right;
     const height = 625 - margin.top - margin.bottom;
 
