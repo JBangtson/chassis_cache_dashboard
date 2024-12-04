@@ -31,7 +31,7 @@ footer {
 th, td {
     padding: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Lato', sans-serif;
     color: white;
     
@@ -200,13 +200,13 @@ a {
 p {
     font-family: 'Lato', sans-serif;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 label {
     font-family: 'Lato', sans-serif;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     
 }
 
@@ -250,6 +250,7 @@ span {
 
 .input-group input {
     font-family: 'Lato', sans-serif;
+    font-size: 15px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -277,6 +278,73 @@ span {
 /* Additional hover effects for buttons - not yet implemented */
 /* Media queries for different screen sizes - not yet implemented */
 /* Animations and transitions - not yet implemented */
+
+
+
+
+
+.input-container {
+    padding: 15px;
+    text-align: right;
+}
+
+.input-group label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+/* Search Button Styling */
+.submit-btn {
+    width: 200px;
+    padding: 8px;
+    background-color: #1C6DD0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #E3B505;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-.5px);
+}
+
+/* Form Layout Styling */
+.input-container {
+    padding: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+}
+
+.input-group input[type="text"] {
+    width: 200px;
+    padding: 5px;
+}
+
+.date-range {
+    display: inline-block;
+}
+
+.date-range span {
+    margin: 0 10px;
+}
 
 
 
@@ -342,8 +410,6 @@ span {
 
 
 
-
-
 @media screen and (max-width: 700px) {
     /* Tablet adjustments */
     
@@ -374,68 +440,3 @@ span {
 
     
 }
-
-.input-container {
-    padding: 15px;
-    text-align: right;
-}
-
-.input-group label {
-    display: inline-block;
-    width: 100px;
-    margin-right: 5px;
-    text-align: left;
-}
-
-/* Submit Button Styling */
-.submit-btn {
-    width: 200px;
-    padding: 8px;
-    background-color: #1C6DD0;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: #E3B505;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-.5px);
-}
-
-/* Form Layout Styling */
-.input-container {
-    padding: 15px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    display: inline-block;
-    width: 100px;
-    margin-right: 5px;
-}
-
-.input-group input[type="text"] {
-    width: 200px;
-    padding: 5px;
-}
-
-.date-range {
-    display: inline-block;
-}
-
-.date-range span {
-    margin: 0 10px;
-}
-
-

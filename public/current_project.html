@@ -15,8 +15,8 @@
            
             <!-- Navigation Buttons -->
             <button class="test-tab-button" onclick="navigateTo('homepage.html')">Home</button>
-            <button class="test-tab-button" onclick="navigateTo('about_me.html')">About Me</button>
-            <button class="test-tab-button" onclick="navigateTo('projects.html')">Projects</button>
+            <!-- <button class="test-tab-button" onclick="navigateTo('about_me.html')">About Me</button> -->
+            <!-- <button class="test-tab-button" onclick="navigateTo('projects.html')">Projects</button> -->
             <button class="test-tab-button" onclick="navigateTo('current_project.html')">Current Project</button>
             <button class="test-tab-button" style=" margin-top: -5px;" onclick="navigateTo('test_report.html')">Chassis Cache Report</button>
             
@@ -150,12 +150,26 @@
                            placeholder="Enter maximum price in $...">
                 </div>
 
+
                 <!-- Date Range -->
+                
+
                 <div class="input-group">
-                    <label style="position: relative; top: 15px;">Date Range:</label>
-                    <input type="date" id="startDate" style="padding: 5px; width: 200px;">
-                    <input type="date" id="endDate" style="padding: 5px; width: 200px; margin-left: 110px; margin-top: 3px;">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date"
+                           id="startDate"
+                           name="startDate" 
+                           style="width: 50%;"> <!-- Increased width -->
                 </div>
+
+                <div class="input-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="date"
+                           id="endDate"
+                           name="endDate"
+                           style="width: 50%;"> <!-- Increased width -->
+                </div>
+
                     <!-- Search Button -->
                 <div class="input-group">
                     <button type="submit" class="submit-btn" style="position: relative; left: -55px;">Search</button>
