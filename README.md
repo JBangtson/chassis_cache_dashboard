@@ -1,25 +1,14 @@
-```mermaid
-graph TD;
-    A[NodeJS carbitrage_dashboard] --> B[server.js]
-    A --> C[package.json]
-    A --> D[public/]
-    D --> E[index.html]
-    D --> F[css/]
-    F --> G[styles.css]
-    D --> H[js/]
-    H --> I[script.js]
-    A --> J[carbitrage_dashboard/]
-    J --> K[carbitrage_api_processing.py]
-    A --> L[db/]
-    L --> M[carbitrage.db]
-```
+# Chassis Cache Dashboard
+
+This is a self-hosted technical dashboard for car listings in the US using the Javascript packages d3 and Leaftlet.
+
+See a preview here:
+[![Youtube Link](https://img.youtube.com/vi/8o7SK-8nUyg/maxresdefault.jpg)](https://www.youtube.com/watch?v=8o7SK-8nUyg)
 
 You need:
 
-carbitrage table in data/
-
 Python: flask, flask_cors, sqlite3, json
-Javascript: Node.js, npm
+Javascript: Node.js
 
 __Run npm start in bash__ Visit [page here](http://localhost:3000) and [API here](http://localhost:5000/api/unique_car_makes)
 
