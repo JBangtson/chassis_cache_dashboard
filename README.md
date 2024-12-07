@@ -2,7 +2,7 @@
 
 This is a self-hosted technical dashboard for car listings in the US using the Javascript packages d3 and Leaftlet.
 
-See a preview here:
+See a preview here (This image is a link):
 [![Youtube Link](https://img.youtube.com/vi/8o7SK-8nUyg/maxresdefault.jpg)](https://www.youtube.com/watch?v=8o7SK-8nUyg)
 
 You need:
